@@ -484,6 +484,7 @@
       }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header>
@@ -647,26 +648,9 @@
         </div>
 
         <div class="chart-box">
-          <h3>Live Market Chart</h3>
-          <div class="tradingview-widget-container">
-            <div id="tradingview_chart"></div>
-            <script src="https://s3.tradingview.com/tv.js"></script>
-            <script>
-              new TradingView.widget({
-                autosize: true,
-                symbol: "BINANCE:BTCUSDT",
-                interval: "60",
-                timezone: "Asia/Kolkata",
-                theme: "dark",
-                style: "1",
-                locale: "en",
-                enable_publishing: false,
-                allow_symbol_change: true,
-                container_id: "tradingview_chart"
-              });
-            </script>
-          </div>
-          <p class="small-text" style="margin-top: 12px;">Chart supplied by TradingView. Market prices can change rapidly.</p>
+          <h3>Illustrative Profit-Only Demo Chart</h3>
+          <p class="small-text" style="margin-bottom:14px">Fictional sample values shown only to demonstrate the chart design. This is not live trading data, a client portfolio, or actual investment performance.</p>
+          <div style="height:320px;position:relative"><canvas id="profitDemoChart"></canvas></div>
         </div>
       </div>
     </section>
@@ -697,20 +681,16 @@
         <div class="contact-grid">
           <div class="card contact-card">
             <h3>Phone / WhatsApp</h3>
-            <p>+91 90624 65118</p>
-            <a class="btn primary" href="https://wa.me/919062465118" target="_blank" rel="noopener">
+            <p>+91 7890129915</p>
+            <a class="btn primary" href="https://wa.me/917890129915" target="_blank" rel="noopener">
               Chat on WhatsApp
             </a>
           </div>
 
           <div class="card contact-card">
-            <h3>Our Address</h3>
-            <p>
-              Caldra Divyashree Elan,<br />
-              1A-206, Sarjapur Road,<br />
-              4th Block, Bengaluru,<br />
-              Karnataka 560034
-            </p>
+            <h3>General Enquiries</h3>
+            <p>For questions about the website and listed services, contact us through WhatsApp.</p>
+            <a class="btn primary" href="https://wa.me/917890129915" target="_blank" rel="noopener noreferrer">Message Us</a>
           </div>
         </div>
       </div>
@@ -752,6 +732,33 @@
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fictional illustrative sample only — never presented as live or actual returns.
+    new Chart(document.getElementById('profitDemoChart'), {
+      type: 'line',
+      data: {
+        labels: ['Demo 1','Demo 2','Demo 3','Demo 4','Demo 5','Demo 6','Demo 7','Demo 8','Demo 9','Demo 10'],
+        datasets: [{
+          label: 'Illustrative demo index',
+          data: [100, 101, 102, 103, 105, 106, 108, 109, 111, 113],
+          borderColor: '#e9bd61',
+          backgroundColor: 'rgba(233,189,97,0.12)',
+          fill: true,
+          tension: 0.35,
+          pointRadius: 2,
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#b9c5d5' }, grid: { color: 'rgba(255,255,255,0.06)' } },
+          y: { ticks: { color: '#b9c5d5' }, grid: { color: 'rgba(255,255,255,0.06)' } }
+        }
+      }
+    });
   </script>
 </body>
 </html>
